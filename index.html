@@ -1,102 +1,102 @@
+HTML
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kişiselleştirilmiş Makyaj Asistanı</title>
+    <title>Tea - Yapay Zeka Makyaj Danışmanı</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { display: flex; height: 100vh; background-color: #fcf8f8; }
+        body { display: flex; height: 100vh; background-color: #faf6f6; }
         
         /* Sol Taraf: Görseller */
         .left-side {
             width: 40%;
-            background: #f3e5f5;
+            background: #f5e6e8;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 20px;
             padding: 20px;
-            border-right: 2px solid #e1bee7;
+            border-right: 2px solid #e8c5c8;
         }
         .left-side img {
             width: 85%;
-            max-height: 40%;
+            max-height: 45%;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
         }
 
-        /* Sağ Taraf: Yapay Zeka Test ve Sohbet Alanı */
+        /* Sağ Taraf: Yapay Zeka Alanı */
         .right-side {
             width: 60%;
             display: flex;
             flex-direction: column;
             padding: 30px;
         }
-        .header { text-align: center; margin-bottom: 20px; color: #4a148c; }
+        .header { text-align: center; margin-bottom: 20px; color: #6b2d5c; }
+        .header h2 { font-size: 28px; font-weight: 600; }
         
         /* API Key Giriş Alanı */
-        .api-box { background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .api-box input { width: 70%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; }
-        .api-box button { padding: 8px 15px; background: #8e24aa; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .api-box { background: #fff; padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; gap: 10px; align-items: center; }
+        .api-box input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; }
+        .api-box button { padding: 10px 20px; background: #d4a373; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
 
         /* Sohbet Ekranı */
         .chat-container {
             flex: 1;
             background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
-            overflow-hidden;
+            overflow: hidden;
         }
-        .chat-messages { flex: 1; overflow-y: auto; margin-bottom: 15px; padding-right: 10px; }
-        .message { margin-bottom: 15px; padding: 10px 15px; border-radius: 10px; max-width: 80%; line-height: 1.5; }
-        .bot { background: #f1f0f0; align-self: flex-start; color: #333; }
-        .user { background: #e1bee7; align-self: flex-end; margin-left: auto; color: #4a148c; }
+        .chat-messages { flex: 1; overflow-y: auto; margin-bottom: 15px; padding-right: 10px; display: flex; flex-direction: column; }
+        .message { margin-bottom: 15px; padding: 12px 18px; border-radius: 15px; max-width: 80%; line-height: 1.6; font-size: 15px; }
+        .bot { background: #f0f0f0; align-self: flex-start; color: #333; border-top-left-radius: 2px; }
+        .user { background: #6b2d5c; align-self: flex-end; color: white; border-top-right-radius: 2px; }
         
         /* Girdi Alanı */
         .input-area { display: flex; gap: 10px; }
-        .input-area input { flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; }
-        .input-area button { padding: 12px 25px; background: #4a148c; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .input-area button:hover { background: #7b1fa2; }
+        .input-area input { flex: 1; padding: 14px; border: 1px solid #ddd; border-radius: 10px; outline: none; font-size: 15px; }
+        .input-area button { padding: 14px 30px; background: #6b2d5c; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; }
+        .input-area button:hover { background: #522246; }
     </style>
 </head>
 <body>
 
-    <!-- SOL TARAF: RESİMLER -->
+    <!-- SOL TARAF: RESİMLER (Bana linklerini atınca burayı güncelleyeceğim) -->
     <div class="left-side">
-        <!-- Buradaki URL'leri kendi istediğin resim linkleriyle değiştirebilirsin -->
-        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500" alt="Makyaj Malzemeleri">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" alt="Renk Paleti">
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600" alt="Makyaj Görseli 1">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600" alt="Makyaj Görseli 2">
     </div>
 
-    <!-- SAĞ TARAF: YAPAY ZEKA ASİSTANI -->
+    <!-- SAĞ TARAF: TEA YAPAY ZEKA ASİSTANI -->
     <div class="right-side">
         <div class="header">
-            <h2>AI Makyaj ve Renk Tonu Danışmanı</h2>
-            <p>Birkaç soruyla sana en uygun makyaj tonlarını bulalım!</p>
+            <h2>Tea Makyaj Danışmanı</h2>
+            <p>Sizin için en doğru renkleri ve ürünleri seçen akıllı asistan</p>
         </div>
 
-        <!-- API Anahtarı Girişi (Güvenlik için kullanıcının girmesi ya da tarayıcıda saklanması en iyisidir) -->
         <div class="api-box" id="apiBox">
-            <label for="apiKey">Google AI Studio API Anahtarınız: </label>
-            <input type="password" id="apiKey" placeholder="AIzaSy...">
+            <input type="password" id="apiKey" placeholder="Google AI Studio API Anahtarınızı Buraya Yapıştırın (AIzaSy...)">
             <button onclick="saveKey()">Kaydet</button>
         </div>
 
         <div class="chat-container">
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot">
-                    Merhaba! Ben senin kişisel makyaj danışmanım. Sana en uygun renk tonlarını belirleyebilmem için hazır mısın? <br><br>
-                    Başlamak için lütfen bana **ten rengini (açık, buğday, esmer)** ve **göz rengini** söyler misin?
+                    <strong>Tea:</strong><br>
+                    Merhaba ben tea! Size yardımcı olabilmem için birkaç soru soracağım.<br><br>
+                    İlk olarak, **ten renginizi** (Örn: Çok açık, açık, buğday, esmer) ve varsa **cilt alt tonunuzu** (sıcak, soğuk, nötr) öğrenebilir miyim?
                 </div>
             </div>
             <div class="input-area">
-                <input type="text" id="userInput" placeholder="Mesajınızı yazın..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                <input type="text" id="userInput" placeholder="Yanıtınızı buraya yazın..." onkeypress="if(event.key === 'Enter') sendMessage()">
                 <button onclick="sendMessage()">Gönder</button>
             </div>
         </div>
@@ -114,16 +114,22 @@
                 localStorage.setItem("gemini_key", key);
                 GEMINI_API_KEY = key;
                 document.getElementById("apiBox").style.display = "none";
-                alert("API Anahtarı başarıyla kaydedildi!");
+                alert("API Anahtarı başarıyla kaydedildi! Artık Tea ile konuşabilirsiniz.");
             }
         }
 
-        // Gemini'ye karakter kazandıran sistem talimatı (System Instruction)
-        const systemInstruction = "Sen profesyonel bir makyaj ve renk analizi uzmanı yapay zekasın. Kullanıcıya ten rengi, alt tonu (sıcak/soğuk/nötr), göz rengi ve saç rengi hakkında sorular sorarak interaktif bir test yap. Testin sonunda ona en uygun ruj, far, allık ve fondöten renk tonlarını (kodları veya isimleriyle) listele. Nazik, enerjik ve estetik bir dil kullan.";
+        // Tea'nin karakteri ve test akış talimatı
+        const systemInstruction = `Senin adın Tea. Profesyonel bir makyaj ve renk analizi uzmanı yapay zekasın. 
+        Kullanıcıya şu sırayla sorular sorarak interaktif bir test yapmalısın:
+        1. Soru: Ten rengi ve alt tonu (Bu ilk başta soruldu).
+        2. Soru: Cilt tipi (Kuru, yağlı, karma) ve en çok odaklanmak istediği alan (Yüz, göz, dudak?).
+        3. Soru: Göz rengi ve saç rengi.
+        
+        Kullanıcı her cevap verdiğinde, bir sonraki soruya geç. Tüm bilgileri topladıktan sonra, kullanıcıya özel "Yüze Uygun Ürünler ve Renk Tonları Raporu" hazırla. Raporun içinde ruj, far, allık ve fondöten/kapatıcı bitişi önerileri yer alsın. Dilin çok samimi, enerjik, kibar ve uzman bir dilde olsun.`;
 
         let chatHistory = [
             { role: "user", parts: [{ text: systemInstruction }] },
-            { role: "model", parts: [{ text: "Anlaşıldı. Kullanıcıya makyaj renk analizi testi uygulamak için hazırım." }] }
+            { role: "model", parts: [{ text: "Anlaşıldı. Ben Tea! Kullanıcıya adım adım makyaj ve ürün analiz testini uygulamak için hazırım." }] }
         ];
 
         async function sendMessage() {
@@ -132,22 +138,20 @@
             if (!userText) return;
 
             if (!GEMINI_API_KEY) {
-                alert("Lütfen önce Google AI Studio'dan aldığınız API anahtarını yukarıya girip kaydedin.");
+                alert("Lütfen önce yukarıdaki alana API anahtarınızı girip 'Kaydet' butonuna basın.");
                 return;
             }
 
-            // Kullanıcı mesajını ekrana ekle
+            // Kullanıcının mesajını ekrana ekle
             appendMessage(userText, "user");
             inputField.value = "";
 
-            // Geçmişe ekle
             chatHistory.push({ role: "user", parts: [{ text: userText }] });
 
-            // Yükleniyor mesajı
-            const loadingDiv = appendMessage("Düşünüyor...", "bot");
+            // "Düşünüyor..." animasyonu
+            const loadingDiv = appendMessage("Tea düşünüyor...", "bot");
 
             try {
-                // Gemini 1.5 Flash API Çağrısı (2026 standartlarına uygun güncel ve hızlı model)
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -155,22 +159,23 @@
                 });
 
                 const data = await response.json();
-                loadingDiv.remove(); // Yükleniyor yazısını kaldır
+                loadingDiv.remove(); 
 
                 if (data.candidates && data.candidates[0].content.parts[0].text) {
                     const botReply = data.candidates[0].content.parts[0].text;
                     
-                    // Bot cevabını ekrana yaz ve geçmişe ekle
-                    appendMessage(botReply, "bot");
+                    // Tea'nin cevabını ekrana yaz
+                    appendMessage("<strong>Tea:</strong><br>" + botReply, "bot");
                     chatHistory.push({ role: "model", parts: [{ text: botReply }] });
                 } else {
-                    appendMessage("Bir hata oluştu, lütfen API anahtarınızı kontrol edin.", "bot");
+                    appendMessage("<strong>Sistem Notu:</strong> Bir hata oluştu. API anahtarınız geçersiz olabilir veya sınırlandırılmış olabilir.", "bot");
+                    console.log("Hata detayı:", data);
                 }
 
             } catch (error) {
                 console.error(error);
                 loadingDiv.remove();
-                appendMessage("Bağlantı hatası oluştu.", "bot");
+                appendMessage("<strong>Sistem Notu:</strong> Bağlantı hatası oluştu. Lütfen internetinizi veya API anahtarınızı kontrol edin.", "bot");
             }
         }
 
@@ -179,7 +184,7 @@
             const msgDiv = document.createElement("div");
             msgDiv.className = `message ${sender}`;
             
-            // Satır satır boşlukları ve basit markdownları görünür kılmak için
+            // Satır boşluklarını ve kalın yazıları düzeltme
             msgDiv.innerHTML = text.replace(/\n/g, "<br>").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
             
             chatMessages.appendChild(msgDiv);
